@@ -1,11 +1,15 @@
 {
     "compilerOptions": {
-      "baseUrl": ".",
+      "baseUrl": "./",
       "paths": {
         "@/*": ["./src/*"]
       },
-      // react
       "jsx": "react",
+      "esModuleInterop": true,
+      "outDir": "dist",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
     }
   }
   

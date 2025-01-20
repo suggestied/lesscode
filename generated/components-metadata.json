@@ -1,0 +1,41 @@
+[
+  {
+    "component": "button",
+    "name": "Button",
+    "description": "A customizable button component with multiple variants and sizes.",
+    "props": [
+      {
+        "name": "variant",
+        "type": "enum",
+        "values": [
+          "default",
+          "destructive",
+          "outline",
+          "secondary",
+          "ghost",
+          "link"
+        ],
+        "default": "default",
+        "description": "Defines the button style variant."
+      },
+      {
+        "name": "size",
+        "type": "enum",
+        "values": [
+          "default",
+          "sm",
+          "lg",
+          "icon"
+        ],
+        "default": "default",
+        "description": "Defines the button size."
+      },
+      {
+        "name": "asChild",
+        "type": "boolean",
+        "default": false,
+        "description": "If true, renders the component as a child of another element."
+      }
+    ]
+  }
+]
