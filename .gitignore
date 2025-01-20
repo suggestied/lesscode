@@ -26,6 +26,6 @@ build/
 Thumbs.db
 
 # Git ignore files from package installations
-package-lock.json
+# package-lock.json
 pnpm-lock.yaml
 yarn.lock
