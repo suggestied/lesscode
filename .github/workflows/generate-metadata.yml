@@ -3,11 +3,11 @@ name: Generate and Commit Component Metadata
 on:
   push:
     branches:
-      - master  # Runs on push to master branch
+      - master
   pull_request:
     branches:
-      - master  # Runs on pull request to master branch
-  workflow_dispatch:  # Allows manual triggering via GitHub UI
+      - master
+  workflow_dispatch:
 
 jobs:
   generate-metadata:
@@ -17,26 +17,36 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetches entire history for accurate change detection
+          fetch-depth: 0
 
-      - name: Setup Node.js Environment
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '23'  # Use Node.js 23
-          cache: 'npm'  # Enable caching for faster builds
+          node-version: '23'
+          cache: 'npm'
 
       - name: Install Dependencies
         run: npm ci  # Ensures clean and reproducible dependency installation
 
       - name: Generate Component Metadata
-        run: npm run export:metadata  # Run the metadata export script
+        run: npm run export:metadata
 
-      - name: Commit and Push Metadata Changes
+      - name: Configure SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Commit and Push Metadata
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # Add changes if any exist
+          # Set Git remote to SSH
+          git remote set-url origin git@github.com:suggestied/lesscode.git
+
+          # Check for file changes and push if necessary
           if git diff --quiet; then
             echo "No changes to commit"
             exit 0
@@ -44,7 +54,4 @@ jobs:
 
           git add generated/components-metadata.json
           git commit -m "chore: update component metadata [skip ci]"
-          git remote set-url origin https://x-access-token:${{ secrets.TOKEN_GIT }}@github.com/${{ github.repository }}.git
           git push origin master
-        env:
-          TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
