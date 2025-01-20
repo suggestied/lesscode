@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - master  # Runs on pull request to master branch
+  paths:
+    - 'src/**'  # Runs when changes are made to files in the src directory
   workflow_dispatch:  # Allows manual triggering via GitHub UI
 
 jobs:

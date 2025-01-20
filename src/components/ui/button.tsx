@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 // Metadata for documentation/export purposes
 const metadata = {
-  name: "Button",
+  name: "Button SHADCN",
   description: "A customizable button component with multiple variants and sizes.",
   props: [
     {
