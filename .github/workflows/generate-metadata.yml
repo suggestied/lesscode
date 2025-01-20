@@ -3,11 +3,11 @@ name: Generate and Commit Component Metadata
 on:
   push:
     branches:
-      - master
+      - master  # Runs on push to master branch
   pull_request:
     branches:
-      - master
-  workflow_dispatch:  # Hiermee kun je het handmatig uitvoeren vanuit de GitHub UI
+      - master  # Runs on pull request to master branch
+  workflow_dispatch:  # Allows manual triggering via GitHub UI
 
 jobs:
   generate-metadata:
@@ -17,33 +17,33 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Fetches entire history for accurate change detection
 
-      - name: Setup Node.js
+      - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-version: '23'
-          cache: 'npm'
+          node-version: '23'  # Use Node.js 23
+          cache: 'npm'  # Enable caching for faster builds
 
       - name: Install Dependencies
-        run: npm install --save-dev --frozen-lockfile
+        run: npm ci  # Ensures clean and reproducible dependency installation
 
       - name: Generate Component Metadata
-        run: npm run export:metadata
+        run: npm run export:metadata  # Run the metadata export script
 
-      - name: Commit and Push Metadata
+      - name: Commit and Push Metadata Changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          
-          # Check if there are changes
+
+          # Check for file changes and commit if necessary
           if git diff --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-          
+
           git add generated/components-metadata.json
           git commit -m "chore: update component metadata [skip ci]"
-          git push
+          git push https://x-access-token:${{ secrets.TOKEN_GIT }}@github.com/${{ github.repository }}.git
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GIT }}
+          TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
