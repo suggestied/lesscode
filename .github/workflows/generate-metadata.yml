@@ -36,7 +36,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # Check for file changes and commit if necessary
+          # Add changes if any exist
           if git diff --quiet; then
             echo "No changes to commit"
             exit 0
@@ -44,6 +44,7 @@ jobs:
 
           git add generated/components-metadata.json
           git commit -m "chore: update component metadata [skip ci]"
-          git push https://x-access-token:${{ secrets.TOKEN_GIT }}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${{ secrets.TOKEN_GIT }}@github.com/${{ github.repository }}.git
+          git push origin master
         env:
           TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
