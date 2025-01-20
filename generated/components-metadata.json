@@ -1,7 +1,7 @@
 [
   {
     "component": "button",
-    "name": "Button",
+    "name": "Button SHADCN",
     "description": "A customizable button component with multiple variants and sizes.",
     "props": [
       {
