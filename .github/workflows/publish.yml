@@ -20,7 +20,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --dev
 
       - name: Build Package
         run: npm run build
