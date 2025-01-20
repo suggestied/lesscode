@@ -1,0 +1,8 @@
+# Ignore test files and configs from npm package
+tests/
+src/
+example/
+node_modules/
+.vscode/
+.gitignore
+.github/

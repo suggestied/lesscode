@@ -1,11 +1,48 @@
 {
   "name": "suggestied-lesscode-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Build faster with @suggestied-lesscode/ui, a no-code-friendly React component library offering ready-to-use UI components with seamless Supabase integration.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "lint": "eslint src --fix",
+    "test": "jest"
   },
-  "author": "Suggestied",
-  "license": "MIT"
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "no-code",
+    "supabase",
+    "tailwind"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.473.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "rollup": "^4.31.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
+  }
 }
