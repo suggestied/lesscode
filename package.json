@@ -1,0 +1,11 @@
+{
+  "name": "suggestied-lesscode-ui",
+  "version": "0.0.1",
+  "description": "Build faster with @suggestied-lesscode/ui, a no-code-friendly React component library offering ready-to-use UI components with seamless Supabase integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suggestied",
+  "license": "MIT"
+}
