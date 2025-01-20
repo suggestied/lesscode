@@ -3,10 +3,10 @@ name: Generate and Commit Component Metadata
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
   workflow_dispatch:  # Hiermee kun je het handmatig uitvoeren vanuit de GitHub UI
 
 jobs:
