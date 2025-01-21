@@ -1,65 +1,7 @@
 // @ts-nocheck
 const fs = require('fs');
 
-const metadata = [
-  {
-    component: "button",
-    id: "button-01",
-    name: "Button",
-    category: "UI",
-    description: "A customizable button component with multiple variants and sizes.",
-    props: [
-      {
-        name: "variant",
-        type: "enum",
-        values: ["default", "destructive", "outline", "secondary", "ghost", "link"],
-        default: "default",
-        description: "Defines the button style variant.",
-        required: true
-      },
-      {
-        name: "size",
-        type: "enum",
-        values: ["default", "sm", "lg", "icon"],
-        default: "default",
-        description: "Defines the button size."
-      },
-      {
-        name: "asChild",
-        type: "boolean",
-        default: false,
-        description: "If true, renders the component as a child of another element."
-      },
-      {
-        name: "onClick",
-        type: "function",
-        description: "Callback function when the button is clicked."
-      }
-    ],
-    defaultProps: {
-      variant: "default",
-      size: "default",
-      asChild: false
-    },
-    events: [
-      {
-        type: "onClick",
-        actions: [
-          {
-            type: "custom_function",
-            handlerName: "handleClick"
-          }
-        ]
-      }
-    ],
-    styles: [
-      { property: "backgroundColor", value: "#3498db", editable: true },
-      { property: "padding", value: "1rem", responsive: true }
-    ],
-    childrenAllowed: false,
-    dependencies: []
-  }
-];
+const metadata = require('../generated/components-metadata.json');
 
 // Function to generate markdown content with better structure and readability
 const generateMarkdown = (component) => {
