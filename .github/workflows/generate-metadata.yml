@@ -57,6 +57,6 @@ jobs:
             exit 0
           fi
 
-          git add generated/components-metadata.json docs/
+          git add -f generated/components-metadata.json docs/
           git commit -m "chore: update component metadata and docs [skip ci]"
           git push origin master
