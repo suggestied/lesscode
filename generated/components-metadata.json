@@ -1,7 +1,9 @@
 [
   {
     "component": "button",
+    "id": "button-01",
     "name": "Button",
+    "category": "UI",
     "description": "A customizable button component with multiple variants and sizes.",
     "props": [
       {
