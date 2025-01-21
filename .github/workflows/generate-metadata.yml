@@ -4,9 +4,17 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'src/components/**'
+      - 'scripts/exportMetadata.ts'
+      - 'scripts/generateDocs.js'
   pull_request:
     branches:
       - master
+    paths:
+      - 'src/components/**'
+      - 'scripts/exportMetadata.ts'
+      - 'scripts/generateDocs.js'
   workflow_dispatch:
 
 jobs:
