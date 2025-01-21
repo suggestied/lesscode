@@ -29,3 +29,7 @@ Thumbs.db
 # package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# The files in docs directory
+docs/
+generated/
