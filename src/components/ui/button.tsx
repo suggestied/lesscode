@@ -4,12 +4,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import {
   ComponentMetadata,
-  ComponentProp,
   PropType,
   EventType,
   ActionType,
-  ComponentEvent,
-  ComponentStyle,
   ComponentCategory,
 } from "@/lib/metadata";
 
