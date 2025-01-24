@@ -75,5 +75,92 @@
     ],
     "childrenAllowed": false,
     "dependencies": []
+  },
+  {
+    "component": "input",
+    "id": "input-01",
+    "name": "Input",
+    "category": "Form",
+    "description": "A customizable input component with multiple variants and sizes.",
+    "props": [
+      {
+        "name": "variant",
+        "type": "enum",
+        "values": [
+          "default",
+          "outline",
+          "filled"
+        ],
+        "default": "default",
+        "description": "Defines the input style variant.",
+        "required": true
+      },
+      {
+        "name": "size",
+        "type": "enum",
+        "values": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "default": "md",
+        "description": "Defines the input size."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "default": "",
+        "description": "Placeholder text for the input."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "default": "",
+        "description": "Value of the input field."
+      },
+      {
+        "name": "onChange",
+        "type": "function",
+        "description": "Callback function when the input value changes."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": false,
+        "description": "Disables the input field if set to true."
+      }
+    ],
+    "defaultProps": {
+      "variant": "default",
+      "size": "md",
+      "placeholder": "",
+      "value": "",
+      "disabled": false
+    },
+    "events": [
+      {
+        "type": "onChange",
+        "actions": [
+          {
+            "type": "custom_function",
+            "handlerName": "handleChange"
+          }
+        ]
+      }
+    ],
+    "styles": [
+      {
+        "property": "borderColor",
+        "value": "#e2e8f0",
+        "editable": true
+      },
+      {
+        "property": "padding",
+        "value": "0.75rem 1rem",
+        "responsive": true
+      }
+    ],
+    "childrenAllowed": false,
+    "dependencies": []
   }
 ]
