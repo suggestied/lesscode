@@ -1,6 +1,6 @@
 {
   "name": "suggestied-lesscode-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Build faster with @suggestied-lesscode/ui, a no-code-friendly React component library offering ready-to-use UI components with seamless Supabase integration.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -34,14 +34,17 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.473.0",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^13.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
-    "@types/react": "^19.0.7",
+    "@types/react": "^18.0.27",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "rollup": "^4.31.0",
