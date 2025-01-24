@@ -63,9 +63,6 @@ module.exports = {
 |-----------|--------------------------|
 | `Button`  | Customizable button       |
 | `Input`   | Styled input field        |
-| `Modal`   | Popup modal window        |
-| `Table`   | Responsive data table     |
-| `Card`    | Content display component |
 
 Each component supports props for easy customization.
 
